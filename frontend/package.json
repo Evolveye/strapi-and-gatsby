@@ -1,0 +1,25 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "app",
+  "author": "Evolveye",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "eslint-config-eye": "^1.1.0",
+    "gatsby": "^3.8.1",
+    "gatsby-plugin-sass": "^4.8.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "^1.35.1"
+  }
+}
