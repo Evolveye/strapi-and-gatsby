@@ -1,8 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
-import "../styles/sanitize.css"
-
 /**
  * @typedef {object} Category
  * @property {string} id

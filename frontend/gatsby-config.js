@@ -5,6 +5,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sass`,
+    `gatsby-plugin-react-leaflet`,
     {
       resolve: `gatsby-source-strapi`,
       options: {
