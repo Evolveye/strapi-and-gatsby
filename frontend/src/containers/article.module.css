@@ -1,3 +1,7 @@
+.entry {
+  display: block;
+}
+
 .entryTitle {
   font-size: 15px;
 }

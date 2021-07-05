@@ -13,7 +13,7 @@ export default function IndexPage() {
       <article className={classess.articles}>
         <h2 className={classess.title}>Articles</h2>
 
-        {getStrapiArticles().map( ({ id, ...rest }) => <ArticleEntry key={id} className={classess.articleEntry} {...rest} /> )}
+        {getStrapiArticles().map( ({ id, ...rest }) => <ArticleEntry key={id} className={classess.articleEntry} id={id} {...rest} /> )}
       </article>
 
       <article className={classess.mapContainer}>

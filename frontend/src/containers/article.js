@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 import * as classess from "./article.module.css"
 
@@ -7,12 +8,12 @@ import * as classess from "./article.module.css"
 
 //   </article>
 // }
-export function ArticleEntry({ className = null, title, content }) {
+export function ArticleEntry({ className = null, id, title, content }) {
   return (
-    <article className={className}>
+    <Link to={`/post/${id}`} className={`${classess.entry} ${className}`}>
       <h3 className={classess.entryTitle}>{title}</h3>
 
       <div>{content}</div>
-    </article>
+    </Link>
   )
 }
