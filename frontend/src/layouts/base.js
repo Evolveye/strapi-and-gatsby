@@ -6,7 +6,7 @@ import "../styles/sanitize.css"
 import "../styles/main.css"
 
 import { ArticleEntry } from "../containers/article.js"
-import { getStrapiArticles } from "../utils/strapi.js"
+import { getArticles } from "../utils/strapi.js"
 
 export default function Layout({ className = null, children }) {
   return (
@@ -16,7 +16,7 @@ export default function Layout({ className = null, children }) {
 
         <h2 className={classess.title2}>Articles</h2>
 
-        {getStrapiArticles().map( ({ id, ...rest }) => <ArticleEntry key={id} className={classess.articleEntry} id={id} {...rest} /> )}
+        {getArticles().map( ({ id, ...rest }) => <ArticleEntry key={id} className={classess.articleEntry} id={id} {...rest} /> )}
       </aside>
 
       <main className={`${classess.main} ${className}`}>{children}</main>

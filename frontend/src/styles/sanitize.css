@@ -79,14 +79,14 @@ a {
   cursor: pointer;
 }
 
-button {
+/* button {
   width: max-content;
   padding: 0;
   border: unset;
   background-color: unset;
   cursor: pointer;
   color: inherit;
-}
+} */
 
 figure {
   margin: 20px 40px;
