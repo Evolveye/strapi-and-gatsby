@@ -5,4 +5,17 @@
  * to customize this model
  */
 
-module.exports = {};
+const cp = require('child_process')
+
+async function rebuildGatsby() {
+  const cmd = `cd ../frontend && gatsby build && cd ../backend`
+  cp.exec( cmd, (err, stdout, stderr) => stdout && console.log( `Rebuild has been ended` ) )
+}
+
+module.exports = {
+  lifecycles: {
+    afterCreate: () => rebuildGatsby(),
+    afterUpdate: () => rebuildGatsby(),
+    afterDelete: () => rebuildGatsby(),
+  }
+}
