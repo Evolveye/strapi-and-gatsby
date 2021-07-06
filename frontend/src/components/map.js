@@ -2,15 +2,15 @@ import React, { useState } from "react"
 import { MapContainer, TileLayer, Marker, Popup, useMapEvent } from "react-leaflet"
 
 function LocationOnClickSelector({ handleSelection }) {
-  const [ position, setPosition ] = useState( null )
+  const [ location, setLocation ] = useState( null )
 
   useMapEvent( `click`, ({ latlng }) => {
     handleSelection?.( latlng )
-    setPosition( latlng )
+    setLocation( latlng )
   } )
 
-  return position && (
-    <Marker position={position}>
+  return location && (
+    <Marker position={location}>
       <Popup>You are here</Popup>
     </Marker>
   )

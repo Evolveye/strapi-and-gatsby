@@ -3,7 +3,8 @@ import RawMap from "../components/map.js"
 
 import * as classess from "./map.module.css"
 
-function handleSendPosition( name, latitude, longitude ) {
+
+function handleLocationCreation( name, latitude, longitude ) {
   console.log({ name, latitude, longitude })
 
   fetch( `http://localhost:3000/locations/draft`, {
@@ -17,17 +18,18 @@ function handleSendPosition( name, latitude, longitude ) {
   } )
 }
 
+
 export default function Map({ className, locations = [] }) {
-  const [ positionName, setPositionName ] = useState( `` )
+  const [ locationName, setLocationName ] = useState( `` )
   const [ selectionMode, setSelectionMode ] = useState( false )
-  const [ selectedPosition, setSelectedPosition ] = useState( null )
+  const [ selectedLocation, setSelectedLocation ] = useState( null )
 
   return (
     <article className={`${classess.map} ${className}`}>
       <RawMap
         style={{ height:`100%`, zIndex:1 }}
         center={[ 53.3734908, 19.0476383 ]}
-        selectLocation={selectionMode && setSelectedPosition}
+        selectLocation={selectionMode && setSelectedLocation}
         locations={locations}
       />
 
@@ -40,7 +42,7 @@ export default function Map({ className, locations = [] }) {
             onChange={
               ({ target }) => {
                 setSelectionMode( target.checked )
-                if (!target.checked) setSelectedPosition( null )
+                if (!target.checked) setSelectedLocation( null )
               }
             }
           />
@@ -50,10 +52,10 @@ export default function Map({ className, locations = [] }) {
           Location name
           <input
             type="text"
-            value={positionName}
+            value={locationName}
             onInput={
               ({ target }) => {
-                setPositionName( target.value )
+                setLocationName( target.value )
               }
             }
           />
@@ -61,12 +63,12 @@ export default function Map({ className, locations = [] }) {
 
         <button
           children="Send location proposition"
-          disabled={!selectedPosition} onClick={
+          disabled={!selectedLocation} onClick={
             () => {
-              handleSendPosition( positionName, selectedPosition.lat, selectedPosition.lng )
-              setSelectedPosition( null )
+              handleLocationCreation( locationName, selectedLocation.lat, selectedLocation.lng )
+              setSelectedLocation( null )
               setSelectionMode( false )
-              setPositionName( `` )
+              setLocationName( `` )
             }
           }
         />
